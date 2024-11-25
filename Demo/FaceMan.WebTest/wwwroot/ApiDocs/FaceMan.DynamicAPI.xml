@@ -249,7 +249,7 @@
             <param name="modelType"></param>
             <returns></returns>
         </member>
-        <member name="M:FaceMan.DynamicWebAPI.Extensions.SwaggerExtensions.UseDynamicSwagger(Microsoft.AspNetCore.Builder.WebApplication,FaceMan.DynamicWebAPI.Config.SwaggerConfigParam)">
+        <member name="M:FaceMan.DynamicWebAPI.Extensions.SwaggerExtensions.UseDynamicSwagger(Microsoft.AspNetCore.Builder.WebApplication)">
             <summary>
             启用Swagger
             </summary>

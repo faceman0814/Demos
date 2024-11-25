@@ -1,11 +1,12 @@
 using FaceMan.DynamicWebAPI.Extensions;
+using FaceMan.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddDynamicApi(builder.Environment.WebRootPath);
-
+DbContextConfigurer.UsingDatabaseServices(builder.Services, builder.Configuration);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
