@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceMan.WebTest", "WFaceMan.ebTest\FaceMan.WebTest.csproj", "{FCB94960-491D-4B16-8B3B-2E1ACA579095}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceMan.WebTest", "FaceMan.WebTest\FaceMan.WebTest.csproj", "{FCB94960-491D-4B16-8B3B-2E1ACA579095}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceMan.DynamicAPI", "..\..\FaceMan.Common\src\FaceMan.DynamicAPI\FaceMan.DynamicAPI.csproj", "{4A3124E2-1F4F-4460-84C6-DBB387332761}"
 EndProject
