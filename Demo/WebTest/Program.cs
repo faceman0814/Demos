@@ -26,13 +26,21 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Home}/{action=Privacy}/{id?}")
-//    .WithStaticAssets();
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapControllers();
+    endpoints.MapDefaultControllerRoute();
+    //endpoints.MapControllerRoute(
+    //name: "default",
+    //pattern: "{controller=Home}/{action=Index}/{id?}");
+    //endpoints.MapRazorPages();
+    //Ìí¼Ó SignalR ¶Ëµã
+    //endpoints.MapHub<SignalRTestHub>("/Hubs");
+
 });
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}")
+//    .WithStaticAssets();
+
 
 app.Run();
