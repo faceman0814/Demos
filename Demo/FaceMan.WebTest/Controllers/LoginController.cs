@@ -15,7 +15,7 @@ namespace FaceMan.WebTest.Controllers
             {
                 Expires = DateTimeOffset.Now.Add(TimeSpan.FromDays(1))
             }
-                );
+            );
         }
     }
 }
