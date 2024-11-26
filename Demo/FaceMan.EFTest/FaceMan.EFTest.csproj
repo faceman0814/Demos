@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+	<Import Project="..\..\version.props" />
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -16,5 +16,13 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\FaceMan.Common\src\FaceMan.EntityFrameworkCore\FaceMan.EntityFrameworkCore.csproj" />
   </ItemGroup>
+	<!-- Common -->
+	<ItemGroup Condition="'$(EntityFrameworkCoreRefMode)'=='nuget'">
+		<PackageReference Include="FaceMan.EntityFrameworkCore" Version="$(EntityFrameworkCoreVersion)" />
+	</ItemGroup>
 
+	<!-- Common -->
+	<ItemGroup Condition="'$(EntityFrameworkCoreRefMode)'=='src'">
+		<ProjectReference Include="..\..\..\FaceMan.Common\src\FaceMan.EntityFrameworkCore\FaceMan.EntityFrameworkCore.csproj" />
+	</ItemGroup>
 </Project>

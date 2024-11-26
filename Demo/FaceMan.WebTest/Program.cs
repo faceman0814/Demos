@@ -7,7 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddDynamicApi(builder.Environment.WebRootPath);
-builder.Services.UsingDatabaseServices();
+
+builder.Services.RegisterDatabase();
 
 var app = builder.Build();
 

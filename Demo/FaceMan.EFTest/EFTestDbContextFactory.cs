@@ -8,7 +8,7 @@ namespace FaceMan.EFTest
     {
         public override WebTestDbContext CreateDbContext(string[] args)
         {
-            args= args.Concat(new[] { "FaceMan.WebTest" }).ToArray();
+            args = new[] { "FaceMan.WebTest" }.Concat(args).ToArray();
             return base.CreateDbContext(args);
         }
     }
