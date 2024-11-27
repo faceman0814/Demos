@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace FaceMan.EFTest.Migrations
 {
-    [DbContext(typeof(WebTestDbContext))]
+    [DbContext(typeof(DemoDbContext))]
     [Migration("20241125105911_Init")]
     partial class Init
     {

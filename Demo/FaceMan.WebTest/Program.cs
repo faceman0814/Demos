@@ -2,11 +2,18 @@ using FaceMan.DynamicWebAPI.Extensions;
 using FaceMan.EFTest;
 using FaceMan.EntityFrameworkCore;
 using FaceMan.EFTest.Extensions;
+using FaceMan.DynamicWebAPI.Config;
+using FaceMan.DynamicWebAPI;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddDynamicApi(builder.Environment.WebRootPath);
+var conifg = new SwaggerConfigParam()
+{
+    Title = "FaceMan API",
+    Version = "v1",
+    HttpMethods = builder.Configuration.GetSection("HttpMethodInfo").Get<List<HttpMethodConfigure>>()
+};
+builder.Services.AddDynamicApi(builder.Environment.WebRootPath, conifg);
 
 builder.Services.RegisterDatabase();
 

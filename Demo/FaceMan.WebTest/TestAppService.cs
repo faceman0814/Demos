@@ -11,8 +11,8 @@ namespace FaceMan.WebTest
     public class TestAppService
     : IApplicationService
     {
-        private readonly WebTestDbContext _webTestDbContext;
-        public TestAppService(WebTestDbContext webTestDbContext)
+        private readonly DemoDbContext _webTestDbContext;
+        public TestAppService(DemoDbContext webTestDbContext)
         {
             _webTestDbContext = webTestDbContext;
         }

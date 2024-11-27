@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FaceMan.EFTest
 {
-    public class WebTestDbContext : FaceManDbContext
+    public class DemoDbContext : FaceManDbContext
     {
-        public WebTestDbContext(DbContextOptions<WebTestDbContext> options) : base(options)
+        public DemoDbContext(DbContextOptions<DemoDbContext> options) : base(options)
         {
         }
 

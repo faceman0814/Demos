@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace FaceMan.EFTest.Migrations
 {
-    [DbContext(typeof(WebTestDbContext))]
+    [DbContext(typeof(DemoDbContext))]
     partial class WebTestDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

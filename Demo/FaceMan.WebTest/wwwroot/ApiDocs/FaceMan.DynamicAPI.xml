@@ -132,7 +132,7 @@
         </member>
         <member name="P:FaceMan.DynamicWebAPI.Config.SwaggerConfigParam.RoutePrefix">
             <summary>
-            配置路由前缀，RoutePrefix是Swagger UI的根路径,默认值: api。
+            配置路由前缀，RoutePrefix是Swagger UI的根路径,默认值: swagger。
             </summary>
         </member>
         <member name="P:FaceMan.DynamicWebAPI.Config.SwaggerConfigParam.DefaultModelExpandDepth">
@@ -163,6 +163,11 @@
         <member name="P:FaceMan.DynamicWebAPI.Config.SwaggerConfigParam.ApiRoutePrefix">
             <summary>
             配置API路由前缀，ApiRoutePrefix是Swagger生成的API的根路径,默认值: api。
+            </summary>
+        </member>
+        <member name="P:FaceMan.DynamicWebAPI.Config.SwaggerConfigParam.appsettings">
+            <summary>
+            配置文件名称，默认值: appsettings.json
             </summary>
         </member>
         <member name="T:FaceMan.DynamicWebAPI.DynamicWebApiAttribute">

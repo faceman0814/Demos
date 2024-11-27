@@ -14,7 +14,7 @@ namespace FaceMan.EFTest.Extensions
         /// <param name="services"></param>
         public static void RegisterDatabase(this IServiceCollection services)
         {
-            var configurer = new FaceManDbContextConfigurer<WebTestDbContext>();
+            var configurer = new FaceManDbContextConfigurer<DemoDbContext>();
             //注册数据库
             configurer.UsingDatabaseServices(services);
             //检查数据库
