@@ -1,8 +1,8 @@
 version: '3.8'
 
 services:
-  demo-app:
-    image: webtest
+  demo:
+    image: crpi-0zweoon3aq8jdu0s.cn-shenzhen.personal.cr.aliyuncs.com/docker-faceman/demo
     ports:
       - "7121:8080"
     #设置环境变量，设置为开发环境
