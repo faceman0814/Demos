@@ -45,8 +45,8 @@ jobs:
       with:
         host: ${{ secrets.ALIYUN_SERVER_IP }}
         username: ${{ secrets.ALIYUN_SERVER_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: ${{ secrets.ALIYUN_SERVER_PORT }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        # port: ${{ secrets.ALIYUN_SERVER_PORT }}
         script: |
           docker pull ${{ secrets.DOCKER_USERNAME }}/webtest:latest
           docker stop webtest || true
