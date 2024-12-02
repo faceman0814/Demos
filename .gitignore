@@ -9,3 +9,8 @@
 /Demo/FaceMan.EFTest/obj
 /Demo/FaceMan.WebTest/bin/Debug/net9.0
 /Demo/FaceMan.WebTest/obj
+/src/.vs
+/src/FaceMan.EFTest/bin
+/src/FaceMan.EFTest/obj
+/src/FaceMan.WebTest/obj
+/src/FaceMan.WebTest/bin
