@@ -42,12 +42,13 @@ jobs:
     - name: SSH into server and deploy
       uses: appleboy/ssh-action@v0.1.8
       with:
-        host: 8.137.77.105
-        username: root
+        host: ${{ secrets.ALIYUN_SERVER_IP }}
+        username: ${{ secrets.ALIYUN_SERVER_USER }}
         password: fsm0814.
         port: 22
         script: |
-          docker pull ${{ secrets.DOCKER_USERNAME }}/webtest:latest
-          docker stop webtest || true
-          docker rm webtest || true
-          docker run -d --name webtest -p 7121:80 ${{ secrets.DOCKER_USERNAME }}/webtest:latest
+          ls
+          pwd
+          docker pull hello-world
+         
+          
