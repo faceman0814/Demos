@@ -1,0 +1,19 @@
+<Project>
+	<PropertyGroup>
+		<DotNetVersion>net9.0</DotNetVersion>
+		<DynamicAPIVersion>1.0.7</DynamicAPIVersion>
+		<EntityFrameworkCoreVersion>1.0.0</EntityFrameworkCoreVersion>
+		<PublicLibraryVersion>1.0.0</PublicLibraryVersion>
+	</PropertyGroup>
+
+	<!-- 项目引入模式，src:源码  nuget:包 -->
+	<PropertyGroup>
+		<NoWarn>1701;1702;1591;1572;1570;1573;1584;1587;1658;0414;</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<DynamicAPIRefMode>src</DynamicAPIRefMode>
+		<EntityFrameworkCoreRefMode>src</EntityFrameworkCoreRefMode>
+		<PublicLibraryRefMode>src</PublicLibraryRefMode>
+	</PropertyGroup>
+</Project>

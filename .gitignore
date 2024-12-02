@@ -1,0 +1,11 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/Demo/.vs
+/Demo/WebTest/bin/Debug/net9.0
+/Demo/WebTest/obj
+/Demo/FaceMan.EFTest/bin/Debug/net9.0
+/Demo/FaceMan.EFTest/obj
+/Demo/FaceMan.WebTest/bin/Debug/net9.0
+/Demo/FaceMan.WebTest/obj
