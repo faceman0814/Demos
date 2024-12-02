@@ -33,8 +33,7 @@ jobs:
     needs: build
     environment:
       name: production
-      url: http://your-production-url.com
-    if: github.event_name == 'workflow_dispatch'
+      url: http://demo.faceman.cn
 
     steps:
     - name: Checkout code
