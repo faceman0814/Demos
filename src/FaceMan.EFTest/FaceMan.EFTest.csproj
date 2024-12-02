@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\version.props" />
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<!-- Common -->
+	<ItemGroup Condition="'$(EntityFrameworkCoreRefMode)'=='nuget'">
+		<PackageReference Include="FaceMan.EntityFrameworkCore" Version="$(EntityFrameworkCoreVersion)" />
+	</ItemGroup>
+
+	<!-- Common -->
+	<ItemGroup Condition="'$(EntityFrameworkCoreRefMode)'=='src'">
+		<ProjectReference Include="..\..\..\FaceMan.Common\src\FaceMan.EntityFrameworkCore\FaceMan.EntityFrameworkCore.csproj" />
+	</ItemGroup>
+</Project>

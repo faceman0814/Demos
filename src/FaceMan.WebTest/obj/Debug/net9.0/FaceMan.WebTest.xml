@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FaceMan.WebTest</name>
+    </assembly>
+    <members>
+        <member name="T:FaceMan.WebTest.TestAppService">
+            <summary>
+            继承IApplicationService实现的动态API服务
+            </summary>
+        </member>
+        <member name="M:FaceMan.WebTest.TestAppService.GetData(FaceMan.WebTest.InputParam)">
+            <summary>
+            实现GetDataAPI接口
+            </summary>
+            <param name="inputParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FaceMan.WebTest.TestAppService.CreateData(FaceMan.WebTest.InputParam)">
+            <summary>
+            实现CreateDataAPI接口
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
