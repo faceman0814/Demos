@@ -10,12 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 检查代码
     - name: Checkout code
       uses: actions/checkout@v2
 
+      # 安装 Docker 构建工具
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
 
+      # 登录到阿里云 Docker 镜像仓库
     - name: Log in to Alibaba Cloud Docker Registry
       uses: docker/login-action@v2
       with:
@@ -23,6 +26,7 @@ jobs:
         password: ${{ secrets.ALIYUN_REGISTRY_PASSWORD }}
         registry: ${{ secrets.ALIYUN_REGISTRY }}
 
+      # 构建并推送 Docker 镜像
     - name: Build and push Docker image
       run: |
         docker build -t ${{ secrets.ALIYUN_REGISTRY }}/${{ secrets.ALIYUN_NAME_SPACE }}/${{ secrets.IMAGE_NAME }}:latest ./src
@@ -36,9 +40,10 @@ jobs:
       url: https://demo.faceman.cn
       
     steps:
+      # 检查代码
     - name: Checkout code
       uses: actions/checkout@v2
-
+      # SSH 连接到服务器并部署应用
     - name: SSH into server and deploy
       uses: appleboy/ssh-action@v0.1.8
       with:
@@ -51,4 +56,4 @@ jobs:
           docker pull ${{ secrets.ALIYUN_REGISTRY }}/${{ secrets.ALIYUN_NAME_SPACE }}/${{ secrets.IMAGE_NAME }}:latest
           docker stop ${{ secrets.IMAGE_NAME }} || true
           docker rm ${{ secrets.IMAGE_NAME }} || true
-          docker run -d --name ${{ secrets.IMAGE_NAME }} -p 7121:80 ${{ secrets.ALIYUN_REGISTRY }}/${{ secrets.ALIYUN_NAME_SPACE }}/${{ secrets.IMAGE_NAME }}:latest
+          docker run -d --name ${{ secrets.IMAGE_NAME }} -p 7121:8080 ${{ secrets.ALIYUN_REGISTRY }}/${{ secrets.ALIYUN_NAME_SPACE }}/${{ secrets.IMAGE_NAME }}:latest
