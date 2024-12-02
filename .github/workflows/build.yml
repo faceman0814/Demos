@@ -15,11 +15,6 @@ on:
         description: "Run build true or false"
         required: true
         default: "true"
-      deploy:
-        description: "Run deploy true or false"
-        required: true
-        default: "true"
-
 jobs:
   # 构建环境
   build_env:
