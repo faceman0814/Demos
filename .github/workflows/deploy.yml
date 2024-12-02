@@ -42,8 +42,8 @@ jobs:
     - name: SSH into server and deploy
       uses: appleboy/ssh-action@v0.1.8
       with:
-        host: ${{ secrets.ALIYUN_SERVER_IP }}
-        username: ${{ secrets.ALIYUN_SERVER_USER }}
+        host: 8.137.77.105
+        username: root
         password: fsm0814.
         port: 22
         script: |
