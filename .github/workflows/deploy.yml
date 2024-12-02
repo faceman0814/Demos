@@ -5,8 +5,6 @@ on:
     branches:
       - main  # 可以根据需要更改为你的目标分支
 
-  workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -37,7 +35,6 @@ jobs:
       name: production
       url: http://demo.faceman.cn
       
-    if: github.event_name == 'workflow_dispatch'
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
