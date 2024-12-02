@@ -5,6 +5,8 @@ on:
     branches:
       - main  # 可以根据需要更改为你的目标分支
 
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -34,7 +36,8 @@ jobs:
     environment:
       name: production
       url: http://demo.faceman.cn
-
+      
+    if: github.event_name == 'workflow_dispatch'
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -44,8 +47,8 @@ jobs:
       with:
         host: ${{ secrets.ALIYUN_SERVER_IP }}
         username: ${{ secrets.ALIYUN_SERVER_USER }}
-        key: ${{ secrets.PRIVATE_KEY }}
-        # port: ${{ secrets.ALIYUN_SERVER_PORT }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.ALIYUN_SERVER_PORT }}
         script: |
           docker pull ${{ secrets.DOCKER_USERNAME }}/webtest:latest
           docker stop webtest || true
