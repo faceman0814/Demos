@@ -1,0 +1,153 @@
+[
+  {
+    "ContainingType": "FaceMan.WebTest.Controllers.LoginController",
+    "Method": "UserLogin",
+    "RelativePath": "api/Login/UserLogin",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FaceMan.WebTest.TestAppService",
+    "Method": "CreateData",
+    "RelativePath": "api/Test/CreateData",
+    "HttpMethod": "Post",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Input",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Input1",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FaceMan.WebTest.TestAppService",
+    "Method": "DeleteData",
+    "RelativePath": "api/Test/DeleteData",
+    "HttpMethod": "Delete",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Input",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Input1",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FaceMan.WebTest.TestAppService",
+    "Method": "GetData",
+    "RelativePath": "api/Test/GetData",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Input",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Input1",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FaceMan.WebTest.TestAppService",
+    "Method": "UPDATEData",
+    "RelativePath": "api/Test/UPDATEData",
+    "HttpMethod": "Put",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Input",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Input1",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

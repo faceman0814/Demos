@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  demo-app:
+    image: webtest
+    ports:
+      - "7121:8080"
+    #设置环境变量，设置为开发环境
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
