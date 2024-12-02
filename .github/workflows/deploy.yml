@@ -1,14 +1,39 @@
-name: Build and Manual Deploy
+name: Build and Deploy
 
 on:
-  push:
-    branches:
-      - main  # 可以根据需要更改为你的目标分支
+  # 当代码被推送到仓库时触发
+  # push:
+  #   branches:
+  #     - main  # 可以根据需要更改为你的目标分支
+  workflow_dispatch:
+    inputs:
+      run_build_env:
+        description: "Run build_env true or false"
+        required: true
+        default: "true"
+      build:
+        description: "Run build true or false"
+        required: true
+        default: "true"
+      deploy:
+        description: "Run deploy true or false"
+        required: true
+        default: "false"
 
 jobs:
-  build:
+  # 构建环境
+  build_env:
     runs-on: ubuntu-latest
+    steps:
+      - name: check login aliyun  验证阿里云登录
+        run: |
+          sudo docker login --username=${{ secrets.ALIYUN_REGISTRY_USER }} --password=${{ secrets.ALIYUN_REGISTRY_PASSWORD }}  ${{ secrets.ALIYUN_REGISTRY }}
 
+  # 构建和推送 Docker 镜像
+  build:
+    # 在哪个环境下运行
+    runs-on: ubuntu-latest
+    if: github.event.inputs.run_build_env == 'true'
     steps:
       # 检查代码
     - name: Checkout code
@@ -34,6 +59,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    if: github.event.inputs.deploy == 'true'
     needs: build
     environment:
       name: production
