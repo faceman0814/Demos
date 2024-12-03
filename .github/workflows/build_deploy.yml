@@ -63,9 +63,6 @@ jobs:
       url: https://demo.faceman.cn
       
     steps:
-      # 检查代码
-    - name: Checkout code
-      uses: actions/checkout@v2
       # SSH 连接到服务器并部署应用
     - name: SSH into server and deploy
       uses: appleboy/ssh-action@v0.1.8

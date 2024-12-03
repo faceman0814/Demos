@@ -14,26 +14,24 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     if: github.event.inputs.deploy == 'true'
     environment:
       name: production
       url: https://demo.faceman.cn
       
     steps:
-      # 检查代码
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Run deploy
-      run: |
-        cd docker
-        # 拉取最新镜像
-        docker pull ${{ secrets.ALIYUN_REGISTRY }}/${{ secrets.ALIYUN_NAME_SPACE }}/${{ secrets.IMAGE_NAME }}:latest
-        # 检查服务是否存在
-          if  docker-compose -p demo ps > /dev/null 2>&1; then
-              # 服务存在，停止并删除
-              docker compose -f docker-compose.yml -p demo down
-              echo "compose demo removed."
-              sleep 10
-          fi
-        sudo docker compose -f docker-compose.yml -p demo pull && docker compose -f docker-compose.yml -p demo up -d
+      # SSH 连接到服务器并部署应用
+    - name: SSH into server and deploy
+      uses: appleboy/ssh-action@v0.1.8
+      with:
+        host: ${{ secrets.ALIYUN_SERVER_IP }}
+        username: ${{ secrets.ALIYUN_SERVER_USER }}
+        # password: ${{ secrets.ALIYUN_SERVER_PASSWORD }}
+        port: ${{ secrets.ALIYUN_SERVER_PORT }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd ../docker/demo
+          docker pull ${{ secrets.ALIYUN_REGISTRY }}/${{ secrets.ALIYUN_NAME_SPACE }}/${{ secrets.IMAGE_NAME }}:latest
+          docker compose down || true
+          docker compose up -d
