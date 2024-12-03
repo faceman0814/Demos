@@ -1,4 +1,4 @@
-name: Deploy
+name: 部署
 
 on:
   # 当代码被推送到仓库时触发
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       deploy:
-        description: "Run deploy true or false"
+        description: "是否部署"
         required: true
         default: "true"
 
@@ -21,17 +21,16 @@ jobs:
       url: https://demo.faceman.cn
       
     steps:
-      # SSH 连接到服务器并部署应用
-    - name: SSH into server and deploy
+    - name: SSH 连接到服务器并部署应用
       uses: appleboy/ssh-action@v0.1.8
       with:
         host: ${{ secrets.ALIYUN_SERVER_IP }}
         username: ${{ secrets.ALIYUN_SERVER_USER }}
-        # password: ${{ secrets.ALIYUN_SERVER_PASSWORD }}
+        password: ${{ secrets.ALIYUN_SERVER_PASSWORD }}
         port: ${{ secrets.ALIYUN_SERVER_PORT }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        # key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd ../docker/demo
-          docker pull ${{ secrets.ALIYUN_REGISTRY }}/${{ secrets.ALIYUN_NAME_SPACE }}/${{ secrets.IMAGE_NAME }}:latest
-          docker compose down || true
-          docker compose up -d
+          cd ../../docker/demo
+          sudo docker pull ${{ secrets.ALIYUN_REGISTRY }}/${{ secrets.ALIYUN_NAME_SPACE }}/${{ secrets.IMAGE_NAME }}:latest
+          sudo docker compose down || true
+          sudo docker compose up -d

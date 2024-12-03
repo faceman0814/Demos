@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: 构建和部署
 
 on:
   # 当代码被推送到仓库时触发
@@ -8,11 +8,11 @@ on:
   workflow_dispatch:
     inputs:
       build:
-        description: "Run build true or false"
+        description: "是否构建"
         required: true
         default: "true"
       deploy:
-        description: "Run deploy true or false"
+        description: "是否部署"
         required: true
         default: "true"
 
@@ -21,7 +21,7 @@ jobs:
   build_env:
     runs-on: ubuntu-latest
     steps:
-      - name: check login aliyun  验证阿里云登录
+      - name: 验证阿里云登录
         run: |
           sudo docker login --username=${{ secrets.ALIYUN_REGISTRY_USER }} --password=${{ secrets.ALIYUN_REGISTRY_PASSWORD }}  ${{ secrets.ALIYUN_REGISTRY }}
 
@@ -32,24 +32,20 @@ jobs:
     needs: build_env
     if: github.event.inputs.build == 'true'
     steps:
-      # 检查代码
-    - name: Checkout code
+    - name: 检出代码
       uses: actions/checkout@v2
 
-      # 安装 Docker 构建工具
-    - name: Set up Docker Buildx
+    - name: 安装 Docker 构建工具
       uses: docker/setup-buildx-action@v2
 
-      # 登录到阿里云 Docker 镜像仓库
-    - name: Log in to Alibaba Cloud Docker Registry
+    - name: 登录到阿里云 Docker 镜像仓库
       uses: docker/login-action@v2
       with:
         username: ${{secrets.ALIYUN_REGISTRY_USER}}
         password: ${{ secrets.ALIYUN_REGISTRY_PASSWORD }}
         registry: ${{ secrets.ALIYUN_REGISTRY }}
 
-      # 构建并推送 Docker 镜像
-    - name: Build and push Docker image
+    - name: 构建并推送 Docker 镜像
       run: |
         docker build -t ${{ secrets.ALIYUN_REGISTRY }}/${{ secrets.ALIYUN_NAME_SPACE }}/${{ secrets.IMAGE_NAME }}:latest ./src
         docker push ${{ secrets.ALIYUN_REGISTRY }}/${{ secrets.ALIYUN_NAME_SPACE }}/${{ secrets.IMAGE_NAME }}:latest
@@ -63,17 +59,16 @@ jobs:
       url: https://demo.faceman.cn
       
     steps:
-      # SSH 连接到服务器并部署应用
-    - name: SSH into server and deploy
+    - name: SSH 连接到服务器并部署应用
       uses: appleboy/ssh-action@v0.1.8
       with:
         host: ${{ secrets.ALIYUN_SERVER_IP }}
         username: ${{ secrets.ALIYUN_SERVER_USER }}
-        # password: ${{ secrets.ALIYUN_SERVER_PASSWORD }}
+        password: ${{ secrets.ALIYUN_SERVER_PASSWORD }}
         port: ${{ secrets.ALIYUN_SERVER_PORT }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        # key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd ../docker/demo
-          docker pull ${{ secrets.ALIYUN_REGISTRY }}/${{ secrets.ALIYUN_NAME_SPACE }}/${{ secrets.IMAGE_NAME }}:latest
-          docker compose down || true
-          docker compose up -d
+          cd ../../docker/demo
+          sudo docker pull ${{ secrets.ALIYUN_REGISTRY }}/${{ secrets.ALIYUN_NAME_SPACE }}/${{ secrets.IMAGE_NAME }}:latest
+          sudo docker compose down || true
+          sudo docker compose up -d
