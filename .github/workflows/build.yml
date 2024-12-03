@@ -1,4 +1,4 @@
-name: Build
+name: 构建
 
 on:
   # 当代码被推送到仓库时触发
