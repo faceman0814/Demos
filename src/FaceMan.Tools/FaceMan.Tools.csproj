@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\version.props" />
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net9.0-windows</TargetFramework>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<ApplicationIcon>wpfui-icon.ico</ApplicationIcon>
+		<UseWPF>true</UseWPF>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="wpfui-icon.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FreeSql.Provider.SqliteCore" Version="3.5.102" />
+		<PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.10" />
+		<PackageReference Include="WPF-UI" Version="3.0.5" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="Assets\wpfui-icon-256.png" />
+		<None Remove="Assets\wpfui-icon-1024.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Assets\wpfui-icon-256.png" />
+		<Resource Include="Assets\wpfui-icon-1024.png" />
+	</ItemGroup>
+
+	<!--<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	--><!-- Common --><!--
+	<ItemGroup Condition="'$(EntityFrameworkCoreRefMode)'=='nuget'">
+		<PackageReference Include="FaceMan.EntityFrameworkCore" Version="$(EntityFrameworkCoreVersion)" />
+	</ItemGroup>
+
+	--><!-- Common --><!--
+	<ItemGroup Condition="'$(EntityFrameworkCoreRefMode)'=='src'">
+		<ProjectReference Include="..\..\..\FaceMan.Common\src\FaceMan.EntityFrameworkCore\FaceMan.EntityFrameworkCore.csproj" />
+	</ItemGroup>-->
+</Project>
