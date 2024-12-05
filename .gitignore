@@ -14,3 +14,6 @@
 /src/FaceMan.EFTest/obj
 /src/FaceMan.WebTest/obj
 /src/FaceMan.WebTest/bin
+/src/FaceMan.Tools/bin/Debug/net9.0-windows
+/src/FaceMan.Tools/obj
+/src/Tools
